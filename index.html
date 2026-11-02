@@ -329,7 +329,7 @@ const TOUR = [
       "Two rules carry everything: verify, don't assume, and safety is never waved through. No LOTO signature, no device job."],
    go:[["Open the trainer kit","kit"]] },
  { t:"The videos",
-   p:["Twenty-four training videos sit with the modules they belong to, plus a Field day set: running late, arrival, halfway, close-out, and working with Coordination and Dealer Services.",
+   p:["Twenty-four training videos sit with the modules they belong to, plus a Field day set: running late, arrival, halfway, close-out, and working with Coordination and Provider Services.",
       "Technicians watch the full-length versions. A video marks itself when it plays to the end, or they tap I watched it. You and dealer owners can skip your own, and you can excuse a technician from videos in their record.",
       "Videos help; the tests prove it. Watching never unlocks a test on its own."],
    go:[["Open the videos","vids"]] },
@@ -387,7 +387,7 @@ const VIDEOS = [
  {id:"FIELD-03",t:"Halfway and Overrun",len:"2:42",mod:"F",file:"FIELD-03_Halfway_and_Overrun.mp4",yt:"zlyDmgsXlb8"},
  {id:"FIELD-04",t:"Close-Out",len:"2:12",mod:"F",file:"FIELD-04_Close-Out.mp4",yt:"q8TWhZgoK-E"},
  {id:"GUIDE-02",t:"Working with Coordination",len:"2:24",mod:"F",file:"GUIDE-02_Working_with_Coordination.mp4",yt:"PIlRZC1fzkI"},
- {id:"GUIDE-03",t:"Working with Dealer Services",len:"3:18",mod:"F",file:"GUIDE-03_Working_with_Dealer_Services.mp4",yt:"sdlBh694B5I"},
+ {id:"GUIDE-03",t:"Working with Provider Services",len:"3:18",mod:"F",file:"GUIDE-03_Working_with_Dealer_Services.mp4",yt:"sdlBh694B5I"},
  {id:"TECH-05",t:"Your Scorecard",len:"2:03",mod:"F",file:"TECH-05_Your_Scorecard.mp4",yt:"D8Wm_DO5oOA"},
  {id:"LOTO-01",t:"Lockout Tagout",len:"",mod:"M2",file:"",yt:""},
  {id:"TSTAT-01",t:"Thermostat",len:"",mod:"M2",file:"",yt:"UKnWuPZ3EFo"},
@@ -617,7 +617,7 @@ function trecView(){const r=DB.records[S.rec];if(!r)return teamView();const a=r.
   (rv.length?'<h3>Reopen after review</h3>'+rv.map(m=>'<button class="btn ghost" data-reopen="'+m.id+'">Reviewed '+m.id+' with them · reopen</button>').join(" "):"")+'</div>'+
   '<div class="card"><h2>Tools</h2>'+(r.tools.at?'<ul class="mini">'+TOOLS_LIST.map((t,i)=>'<li class="'+(it[i]==="need"?"no":it[i]==="have"?"ok":"")+'">'+esc(t[1])+' — '+esc(it[i]||"not marked")+(t[2]==="Required"&&it[i]!=="have"?" · required":"")+'</li>').join("")+'</ul><label class="opt"><input type="checkbox" id="tok"'+(a.toolsOk?" checked":"")+'><span>I confirmed these tools with the technician</span></label>':'<p>Not submitted yet.</p>')+'</div>'+
   '<div class="card"><h2>First-job spot check</h2><div class="seg wide"><label><input type="radio" name="spot" value="clear"'+(a.spot==="clear"?" checked":"")+'><span>Cleared</span></label><label><input type="radio" name="spot" value="not clear"'+(a.spot==="not clear"?" checked":"")+'><span>Not cleared</span></label><label><input type="radio" name="spot" value=""'+(!a.spot?" checked":"")+'><span>Not done</span></label></div>'+(r.loto?'':'<p class="warn">LOTO attestation not signed. No line-voltage device job dispatches until it is.</p>')+'</div>'+
-  '<div class="card"><h2>Videos</h2><p>'+esc(vidCount(r))+'</p><label class="opt"><input type="checkbox" id="vex"'+(a.vidsExcused?" checked":"")+'><span>Excuse from videos. Tests, LOTO and the spot check still apply.</span></label></div>'+'<div class="card"><h2>Follow-up</h2><label for="fo">Owner, by role</label><input id="fo" value="'+esc(a.owner)+'" placeholder="Dealer Services, Trainer, Coordination"><label for="fd">Due date</label><input id="fd" type="date" value="'+esc(a.due)+'"></div>'+
+  '<div class="card"><h2>Videos</h2><p>'+esc(vidCount(r))+'</p><label class="opt"><input type="checkbox" id="vex"'+(a.vidsExcused?" checked":"")+'><span>Excuse from videos. Tests, LOTO and the spot check still apply.</span></label></div>'+'<div class="card"><h2>Follow-up</h2><label for="fo">Owner, by role</label><input id="fo" value="'+esc(a.owner)+'" placeholder="Provider Services, Trainer, Coordination"><label for="fd">Due date</label><input id="fd" type="date" value="'+esc(a.due)+'"></div>'+
   '<button class="btn" data-act="adminsave">Save</button>';}
 
 /* ---------- help ---------- */
